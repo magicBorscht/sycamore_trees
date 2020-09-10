@@ -7,6 +7,7 @@ class MenuNode(models.Model):
     name = models.CharField(verbose_name='Имя', max_length=100, default='Нет имени')
     link = models.CharField(verbose_name='Ссылка', max_length=100, default='', blank=True)
     menu_name = models.CharField(verbose_name='Имя меню', max_length=100, default='')
+    level = models.IntegerField(verbose_name='Уровень отступа', default=0)
 
     def __str__(self):
         return f"Пункт меню {self.menu_name}: {self.name}"
@@ -14,3 +15,8 @@ class MenuNode(models.Model):
     class Meta:
         verbose_name = 'Пункт меню'
         verbose_name_plural = 'Пункты меню'
+
+    def save(self, *args, **kwargs):
+        if self.parent:
+            self.level = self.parent.level + 1
+        super().save(*args, **kwargs)

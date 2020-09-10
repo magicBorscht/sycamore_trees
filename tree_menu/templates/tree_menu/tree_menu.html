@@ -1,0 +1,5 @@
+{% for node in menu %}
+    <div>
+        <a href="{% url node.link %}">{{ node.name }}</a>
+    </div>
+{% endfor %}
