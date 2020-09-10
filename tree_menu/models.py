@@ -19,4 +19,5 @@ class MenuNode(models.Model):
     def save(self, *args, **kwargs):
         if self.parent:
             self.level = self.parent.level + 1
+            self.menu_name = self.parent.menu_name  # I don't want children to be separated from their parents!
         super().save(*args, **kwargs)
