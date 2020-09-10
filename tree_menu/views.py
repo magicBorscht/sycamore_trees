@@ -42,3 +42,10 @@ def one_more_view(request):
         'woah': 'The owls are not what they seem.'
     }
     return render(request, 'tree_menu/basic_template.html', context)
+
+
+def and_another_view(request):
+    context = {
+        'woah': 'The Party requires more views, comrade'
+    }
+    return render(request, 'tree_menu/basic_template.html', context)

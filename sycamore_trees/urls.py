@@ -25,5 +25,7 @@ urlpatterns = [
     path('questionable', policeman_fox, name='questionable'),
     path('mindblow', about_myself, name='mindblow'),
     path('pieleg', one_more_view, name='pieleg'),
+    path('whatever', and_another_view, name='whatever'),
+    path('unprikol', not_a_view, name='unprikol')
 
 ]

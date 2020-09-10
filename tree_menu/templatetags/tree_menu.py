@@ -21,8 +21,10 @@ def draw_menu(menu_name, path):
             if node.level > 0:
                 continue
         else:
+            # TODO: This thing now will expand everything above the active node, including unrelated ones.
+            # TODO: Children must be put strictly after their parents.
             if node.level > active_node.level:
-                if not node.parent == active_node or node.parent == active_node.parent:
+                if not node.parent == active_node:
                     continue
 
         # Crude ASCII design
