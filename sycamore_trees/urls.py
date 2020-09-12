@@ -26,6 +26,8 @@ urlpatterns = [
     path('mindblow', about_myself, name='mindblow'),
     path('pieleg', one_more_view, name='pieleg'),
     path('whatever', and_another_view, name='whatever'),
-    path('unprikol', not_a_view, name='unprikol')
-
+    path('unprikol', not_a_view, name='unprikol'),
+    path('another', not_a_view, name='another'),
+    path('stuff', not_a_view, name='stuff'),
+    path('secondleg', not_a_view, name='secondleg'),
 ]

@@ -1,5 +1,5 @@
 {% for node in menu %}
     <div>
-        <a href="{% url node.link %}">{{ node.name }}</a>
+        <a href="{% if node.named_link %}{% url node.link %}{% else %}{{ node.link }}{% endif %}">{{ node.name }}</a>
     </div>
 {% endfor %}
