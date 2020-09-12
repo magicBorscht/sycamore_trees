@@ -2,7 +2,6 @@ from django import template
 from django.db import connection
 from tree_menu.models import MenuNode
 from django.shortcuts import reverse
-from django.shortcuts import resolve_url
 from django.urls.exceptions import NoReverseMatch
 
 register = template.Library()
@@ -14,13 +13,11 @@ def draw_menu(menu_name, path):
     active_node = None
     menu = []
     nodes_to_operate = []
-    print(len(connection.queries))
-    for node in reversed(nodes):
+    for node in nodes:
         if node.link == path or node.link == path.strip('/'):
             active_node = node
         if not node.parent_id:
             nodes_to_operate.append(node)
-    print(len(connection.queries))
 
     if active_node:
         active_family_tree = active_node.get_family_tree(nodes)
@@ -35,8 +32,6 @@ def draw_menu(menu_name, path):
                     nodes_to_operate.insert(i+1, node)
                     break
 
-    print(len(connection.queries))
-    # for nodelist in nodelists:
     for node in nodes_to_operate:
         # Crude ASCII design
         name = node.name if not node.parent_id else '|--' * node.level + node.name
