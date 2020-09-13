@@ -19,6 +19,7 @@ from tree_menu.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', what_a_view),
     path('page', what_a_view, name='page'),
     path('vitaley', not_a_view, name='vitaley'),
     path('prikol', view_is_gone, name='prikol'),
